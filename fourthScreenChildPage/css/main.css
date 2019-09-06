@@ -1,0 +1,304 @@
+/* 清除浮 动*/
+.fix{*zoom:1;}
+.fix:after{display:table; content:''; clear:both;}
+/*-- end --*/
+
+body{
+    overflow-x: hidden;
+}
+
+/* 头部 */
+.header{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1111;
+    background-color: black;
+}
+.header >.logo{
+    display: block;
+    height: 60px;
+    max-width: 27%;
+    margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 70px;
+    float: left;
+    overflow: hidden;
+}
+.header .logo img{
+    height: 100%;
+}
+
+.header .menu-box{
+    display: block;
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+    height: 30px;
+}
+.header .menu-box img{
+    height: 100%;
+}
+
+.header.nav{
+    float: right;
+    line-height: 80px;
+}
+.header .nav>li{
+    padding: 0 25px;
+    float: left;
+    line-height: 80px;
+    position: relative;
+}
+.header .nav li >a{
+    color: white;
+    position: relative;
+	z-index:1;
+	font-size: 16px;
+}
+.header .nav >li >a.select{
+    color: red;
+}
+.header .nav >li:hover>a{
+    color:red;
+}
+
+.child-nav{
+	padding:15px 0;
+	border-left:1px solid red;
+	border-right:1px solid red;
+	position:relative;
+	position:absolute;
+	z-index:0;
+	top:0;
+	left:0;
+	width:100%;
+	display:none;
+}
+.child-nav dd:hover > a{
+	color:red;
+}
+
+.bg-black{
+	width:100%;
+	height:calc(100% - 30px);
+	background:rgba(0,0,0,1);
+	position:absolute;
+	top:15px;
+	left:0;
+}
+
+.child-nav .red-box{
+    /* 各种浏览器兼容 */
+	width:calc(100% + 20px);
+	padding:44px 10px 10px 10px;
+	border-top:1px solid red;
+	border-bottom:1px solid red;
+	margin-left:-20px;
+	position:relative;
+}
+
+.child-nav .red-box dl{
+	line-height:50px;
+	text-align:center;
+	width:calc(100% - 20px);
+	margin-left:10px;
+}
+
+.child-nav .red-box dl > dd{
+	position:relative;
+	padding:15px 15px;
+	line-height:24px;
+}
+
+.child-nav a{
+	color:white;
+}
+
+.child-nav .red-box .spot i{
+	width:6px;
+	height:6px;
+	border-radius:50%;
+	background-color:red;
+	position:absolute;
+}
+
+.child-nav .red-box .spot i:first-child{
+	bottom:-4px;
+	left:100%;
+}
+
+.child-nav .red-box .spot i:last-child{
+	bottom:100%;
+	left:16px;
+}
+
+/* 侧边导航栏 */
+
+.black-box{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index:111111;
+    display: none;
+}
+/* 一级导航 */
+.nav-main{
+    height: 100%;
+    width: 100px;
+    color: #ffffff;
+    background-color: #333333;
+    font-size: 16px;
+    margin-left: -100px;
+}
+.nav-main a {
+    color: #ffffff;
+}
+.nav-box{
+    position: relative;
+    perspective: 200px;
+    -webkit-perspective: 200px;
+    transform-style: preserve-3d;
+    height: 100%;
+    z-index: 99;
+}
+.nav-ce,.nav-ul{
+    height: 100%;
+}
+.nav-ul li{
+    height: 10%;
+}
+.nav-ul li a {
+    display: block;
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: all .5s;
+}
+
+.nav-ul li a:before{
+    content: '';
+    position: absolute;
+    left: -240px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #d21414;
+    z-index: 1;
+    transform: skew(30deg,0);
+    transition: all .5s;
+}
+.nav-ul li a:hover{
+    background: red;
+}
+.nav-ul li a:hover:before{
+	left: -30px;
+}
+.nav-ul li a:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	left: 0;
+	top: 20px;
+	z-index: 1;
+}
+.nav-ul li a span{
+	display: block;
+	line-height:70px;
+	position: relative;
+	z-index: 1;
+}
+
+@media(max-width:1400px){
+	.nav{
+		display:none;
+	}
+	.header{
+		background-color:transparent;
+	}
+	.menu-box{
+		display:block;
+	}
+}
+/*  */
+.nav-slide{
+	position: fixed;
+	left: 100px;
+	top: 0;
+	width: 200px;
+	height: 100%;
+	background: #252829;
+	transform: rotateY(120deg);
+	z-index: 99;
+	visibility: hidden;
+	transform-origin: 0 0;
+	backface-visibility: hidden;
+	transition: all .5s;
+	transition-timing-function: cubic-bezier(.08, .72, .71, .96);
+}
+.nav-slide.hover{
+	transform: rotateY(0deg);
+	z-index: 15;
+	visibility: visible;
+}
+
+/* 二级导航菜单 */
+.nav-slide-o li a{
+    display: block;
+    line-height: 50px;
+	padding: 0 20px;
+	font-size: 14px;
+	overflow: hidden;
+	text-align: left;
+	position: relative;
+	transition: all .5s;
+}
+
+.nav-slide-o li a:before{
+	content: '';
+	position: absolute;
+	left: -230%;
+	top: 0px;
+	width: 200%;
+	height: 100%;
+	background: #d21414;
+	z-index: 1;
+	transform: skew(30deg, 0);
+	transition: all .5s;
+}
+
+.nav-slide-o li a:hover{
+	background: red;
+}
+
+.nav-slide-o li a:hover:before{
+	left: -60px;
+}
+
+.nav-slide-o li a span{
+	position: relative;
+	z-index: 1;
+}
+
+.nav-slide-o {
+	display: none;
+}
+
+.child-menu{
+	background-color:#333;
+	color:#ccc;
+	display:none;
+}
+
+.child-menu span{
+	padding-left:20px;
+}
+
