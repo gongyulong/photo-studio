@@ -1,0 +1,10 @@
+/* 初始化 */
+body,h1,h2,h3,h4,h5,dl,dd,dt,p,ul,li,ol{ margin:0; padding:0;box-sizing: border-box}
+input,select,form,textarea,button,video{ border:none; margin:0;outline:none; padding:0; appearance:none;}
+h1,h2,h3,h4,h5{ font-weight:normal;font-size:18px;}
+img{   vertical-align: middle;
+    border: none;}
+a{ text-decoration:none; outline:none;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;-webkit-user-select: none;}
+ul,li{list-style:none;}
+body,html{ width:100%; height:100%;font-size:16px;font-family:"微软雅黑";}
+/* --end-- */
